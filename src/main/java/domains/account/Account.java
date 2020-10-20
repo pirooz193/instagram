@@ -1,7 +1,7 @@
 package domains.account;
 
 import base.BaseEntity;
-import domains.user.User;
+import domains.account.post.Post;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,42 +10,59 @@ import java.util.List;
 @Entity
 public class Account extends BaseEntity<Long> {
 
-    /*@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
-    private String password;*/
+    private String password;
 
 
-    @OneToMany
-    private List<User> followers = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "ac_followers")
+    private List<Account> followers = new ArrayList<>();
 
-    @OneToMany
-    private List<User> followings = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "ac_followings")
+    private List<Account> followings = new ArrayList<>();
 
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
 
     @Override
     public String toString() {
-        return "followers:" + followers +
-                "\n followings:" + followings +
-                "\n posts :" + posts;
+        return "username:"+username+
+                " posts :" + posts;
     }
 
-    public List<User> getFollowers() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Account> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(List<User> followers) {
+    public void setFollowers(List<Account> followers) {
         this.followers = followers;
     }
 
-    public List<User> getFollowings() {
+    public List<Account> getFollowings() {
         return followings;
     }
 
-    public void setFollowings(List<User> followings) {
+    public void setFollowings(List<Account> followings) {
         this.followings = followings;
     }
 

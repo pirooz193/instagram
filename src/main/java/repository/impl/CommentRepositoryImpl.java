@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domains.account.Comment;
+import domains.account.post.Comment;
 import repository.CommentRepository;
 import repository.base.BaseRepository;
 

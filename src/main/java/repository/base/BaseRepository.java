@@ -16,6 +16,7 @@ public abstract class BaseRepository<Entity, PK> {
     public Entity save(Entity entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
+        entityManager.flush();
         entityManager.getTransaction().commit();
         return entity;
     }
@@ -23,6 +24,7 @@ public abstract class BaseRepository<Entity, PK> {
     public Entity load(PK id) {
         entityManager.getTransaction().begin();
         Entity entity = entityManager.find(getEntityClass(), id);
+        entityManager.getTransaction().commit();
         return entity;
     }
 
@@ -44,9 +46,10 @@ public abstract class BaseRepository<Entity, PK> {
 
     public Entity update(Entity entity) {
         entityManager.getTransaction().begin();
-        Entity update = entityManager.merge(entity);
+        Entity newEntity = entityManager.merge(entity);
+         entityManager.flush();
         entityManager.getTransaction().commit();
-        return update;
+        return newEntity;
     }
 
 

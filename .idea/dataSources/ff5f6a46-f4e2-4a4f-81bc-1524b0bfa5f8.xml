@@ -1139,334 +1139,285 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="288" parent="9" name="account"/>
-    <table id="289" parent="9" name="account_post"/>
-    <table id="290" parent="9" name="account_user"/>
-    <table id="291" parent="9" name="baseentity"/>
-    <table id="292" parent="9" name="comment"/>
-    <table id="293" parent="9" name="hibernate_sequence"/>
-    <table id="294" parent="9" name="post"/>
-    <table id="295" parent="9" name="post_comment"/>
-    <table id="296" parent="9" name="post_user"/>
-    <table id="297" parent="9" name="user"/>
-    <table id="298" parent="9" name="user_account"/>
-    <column id="299" parent="288" name="id">
+    <table id="288" parent="9" name="ac_followers"/>
+    <table id="289" parent="9" name="ac_followings"/>
+    <table id="290" parent="9" name="account"/>
+    <table id="291" parent="9" name="account_post"/>
+    <table id="292" parent="9" name="baseentity"/>
+    <table id="293" parent="9" name="comment"/>
+    <table id="294" parent="9" name="hibernate_sequence"/>
+    <table id="295" parent="9" name="post"/>
+    <table id="296" parent="9" name="post_account"/>
+    <table id="297" parent="9" name="post_comment"/>
+    <column id="298" parent="288" name="Account_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="300" parent="288" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="301" parent="289" name="Account_id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="302" parent="289" name="posts_id">
+    <column id="299" parent="288" name="followers_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="303" parent="289" name="UK_kt9ljjfr3fi2p3pd9m9v3wjic">
-      <ColNames>posts_id</ColNames>
+    <index id="300" parent="288" name="UK_mv50twu55vg46bxfycqmjbcea">
+      <ColNames>followers_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="304" parent="289" name="FKrm6j09oj263itgqs54j8l9c81">
+    <index id="301" parent="288" name="FKri9xn7r0a4r6jke0tq7vg86x5">
       <ColNames>Account_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="305" parent="289" name="UK_kt9ljjfr3fi2p3pd9m9v3wjic">
-      <ColNames>posts_id</ColNames>
-      <UnderlyingIndexName>UK_kt9ljjfr3fi2p3pd9m9v3wjic</UnderlyingIndexName>
+    <key id="302" parent="288" name="UK_mv50twu55vg46bxfycqmjbcea">
+      <ColNames>followers_id</ColNames>
+      <UnderlyingIndexName>UK_mv50twu55vg46bxfycqmjbcea</UnderlyingIndexName>
     </key>
-    <foreign-key id="306" parent="289" name="FKrm6j09oj263itgqs54j8l9c81">
+    <foreign-key id="303" parent="288" name="FKri9xn7r0a4r6jke0tq7vg86x5">
       <ColNames>Account_id</ColNames>
       <RefSchemaName>instagram</RefSchemaName>
       <RefTableName>account</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="307" parent="289" name="FKckdustiree7tx759sf1tk5slq">
+    <foreign-key id="304" parent="288" name="FKa6lmx92u7g5dr4nxbbcddiuot">
+      <ColNames>followers_id</ColNames>
+      <RefSchemaName>instagram</RefSchemaName>
+      <RefTableName>account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="305" parent="289" name="Account_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="306" parent="289" name="followings_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="307" parent="289" name="UK_4kccngcqp6m08vpfvgweb5tkp">
+      <ColNames>followings_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="308" parent="289" name="FK1hte1dmql8d64di2tlwbxfbl7">
+      <ColNames>Account_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="309" parent="289" name="UK_4kccngcqp6m08vpfvgweb5tkp">
+      <ColNames>followings_id</ColNames>
+      <UnderlyingIndexName>UK_4kccngcqp6m08vpfvgweb5tkp</UnderlyingIndexName>
+    </key>
+    <foreign-key id="310" parent="289" name="FK1hte1dmql8d64di2tlwbxfbl7">
+      <ColNames>Account_id</ColNames>
+      <RefSchemaName>instagram</RefSchemaName>
+      <RefTableName>account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="311" parent="289" name="FKkpe8bor6iqv71wy9jvr9lttr4">
+      <ColNames>followings_id</ColNames>
+      <RefSchemaName>instagram</RefSchemaName>
+      <RefTableName>account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="312" parent="290" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="313" parent="290" name="password">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="314" parent="290" name="username">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="315" parent="290" name="UK_de34gsw4qt8auhffbna969ahp">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="316" parent="290" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="317" parent="290" name="UK_de34gsw4qt8auhffbna969ahp">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>UK_de34gsw4qt8auhffbna969ahp</UnderlyingIndexName>
+    </key>
+    <column id="318" parent="291" name="Account_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="319" parent="291" name="posts_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="320" parent="291" name="UK_kt9ljjfr3fi2p3pd9m9v3wjic">
+      <ColNames>posts_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="321" parent="291" name="FKrm6j09oj263itgqs54j8l9c81">
+      <ColNames>Account_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="322" parent="291" name="UK_kt9ljjfr3fi2p3pd9m9v3wjic">
+      <ColNames>posts_id</ColNames>
+      <UnderlyingIndexName>UK_kt9ljjfr3fi2p3pd9m9v3wjic</UnderlyingIndexName>
+    </key>
+    <foreign-key id="323" parent="291" name="FKrm6j09oj263itgqs54j8l9c81">
+      <ColNames>Account_id</ColNames>
+      <RefSchemaName>instagram</RefSchemaName>
+      <RefTableName>account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="324" parent="291" name="FKckdustiree7tx759sf1tk5slq">
       <ColNames>posts_id</ColNames>
       <RefSchemaName>instagram</RefSchemaName>
       <RefTableName>post</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="308" parent="290" name="Account_id">
+    <column id="325" parent="292" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="290" name="followings_id">
-      <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="310" parent="290" name="followers_id">
-      <Position>3</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="311" parent="290" name="UK_lkrrgccueh3rm40x4kwqiyqn1">
-      <ColNames>followings_id</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="312" parent="290" name="UK_hkh53na6lo73a0ey5jf5hf7gg">
-      <ColNames>followers_id</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="313" parent="290" name="FK66hy8jjcgwfjjjy741nu3aphp">
-      <ColNames>Account_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="314" parent="290" name="UK_lkrrgccueh3rm40x4kwqiyqn1">
-      <ColNames>followings_id</ColNames>
-      <UnderlyingIndexName>UK_lkrrgccueh3rm40x4kwqiyqn1</UnderlyingIndexName>
-    </key>
-    <key id="315" parent="290" name="UK_hkh53na6lo73a0ey5jf5hf7gg">
-      <ColNames>followers_id</ColNames>
-      <UnderlyingIndexName>UK_hkh53na6lo73a0ey5jf5hf7gg</UnderlyingIndexName>
-    </key>
-    <foreign-key id="316" parent="290" name="FK66hy8jjcgwfjjjy741nu3aphp">
-      <ColNames>Account_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>account</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="317" parent="290" name="FK1eth3jxbv4clu99xen6y781fj">
-      <ColNames>followings_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="318" parent="290" name="FKivpwjt1i1w0k0i2gsr48llbcl">
-      <ColNames>followers_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="319" parent="291" name="id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="320" parent="291" name="PRIMARY">
+    <key id="326" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="321" parent="292" name="id">
+    <column id="327" parent="293" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="292" name="text">
+    <column id="328" parent="293" name="text">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="323" parent="292" name="PRIMARY">
+    <key id="329" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="324" parent="293" name="next_val">
+    <column id="330" parent="294" name="next_val">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="294" name="id">
+    <column id="331" parent="295" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="294" name="Photo">
+    <column id="332" parent="295" name="Photo">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="294" name="caption">
+    <column id="333" parent="295" name="caption">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="294" name="createDate">
+    <column id="334" parent="295" name="createDate">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="329" parent="294" name="PRIMARY">
+    <key id="335" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="330" parent="295" name="Post_id">
+    <column id="336" parent="296" name="Post_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="295" name="comments_id">
+    <column id="337" parent="296" name="likes_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="332" parent="295" name="UK_5nd2ucnctmvwq31ovab2vi00x">
+    <index id="338" parent="296" name="FKqwk4xvr1gekqksw9t25kmd33w">
+      <ColNames>Post_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="339" parent="296" name="FKh1o5cg25a2cnqx5pb9uqeii75">
+      <ColNames>likes_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <foreign-key id="340" parent="296" name="FKqwk4xvr1gekqksw9t25kmd33w">
+      <ColNames>Post_id</ColNames>
+      <RefSchemaName>instagram</RefSchemaName>
+      <RefTableName>post</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="341" parent="296" name="FKh1o5cg25a2cnqx5pb9uqeii75">
+      <ColNames>likes_id</ColNames>
+      <RefSchemaName>instagram</RefSchemaName>
+      <RefTableName>account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="342" parent="297" name="Post_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="343" parent="297" name="comments_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="344" parent="297" name="UK_5nd2ucnctmvwq31ovab2vi00x">
       <ColNames>comments_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="333" parent="295" name="FKgtvmchqpjf5ysbhyg52cofvrn">
+    <index id="345" parent="297" name="FKgtvmchqpjf5ysbhyg52cofvrn">
       <ColNames>Post_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="334" parent="295" name="UK_5nd2ucnctmvwq31ovab2vi00x">
+    <key id="346" parent="297" name="UK_5nd2ucnctmvwq31ovab2vi00x">
       <ColNames>comments_id</ColNames>
       <UnderlyingIndexName>UK_5nd2ucnctmvwq31ovab2vi00x</UnderlyingIndexName>
     </key>
-    <foreign-key id="335" parent="295" name="FKgtvmchqpjf5ysbhyg52cofvrn">
+    <foreign-key id="347" parent="297" name="FKgtvmchqpjf5ysbhyg52cofvrn">
       <ColNames>Post_id</ColNames>
       <RefSchemaName>instagram</RefSchemaName>
       <RefTableName>post</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="336" parent="295" name="FK1yqm25y6mj9vmmxj4ev7aj2q1">
+    <foreign-key id="348" parent="297" name="FK1yqm25y6mj9vmmxj4ev7aj2q1">
       <ColNames>comments_id</ColNames>
       <RefSchemaName>instagram</RefSchemaName>
       <RefTableName>comment</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="337" parent="296" name="Post_id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="338" parent="296" name="taggedPeople_id">
-      <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="339" parent="296" name="likes_id">
-      <Position>3</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="340" parent="296" name="UK_jixjbv11chategrksfqg0ikev">
-      <ColNames>taggedPeople_id</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="341" parent="296" name="FKs0rihpt3jjxljdhtpq32p3j7x">
-      <ColNames>Post_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="342" parent="296" name="FKojfs3m9j3mj6cltis20mtwprk">
-      <ColNames>likes_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="343" parent="296" name="UK_jixjbv11chategrksfqg0ikev">
-      <ColNames>taggedPeople_id</ColNames>
-      <UnderlyingIndexName>UK_jixjbv11chategrksfqg0ikev</UnderlyingIndexName>
-    </key>
-    <foreign-key id="344" parent="296" name="FKs0rihpt3jjxljdhtpq32p3j7x">
-      <ColNames>Post_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>post</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="345" parent="296" name="FK24hxbrxrlwy4mx242dt1hmwnl">
-      <ColNames>taggedPeople_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="346" parent="296" name="FKojfs3m9j3mj6cltis20mtwprk">
-      <ColNames>likes_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="347" parent="297" name="id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="348" parent="297" name="password">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="349" parent="297" name="username">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="350" parent="297" name="UK_jreodf78a7pl5qidfh43axdfb">
-      <ColNames>username</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="351" parent="297" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="352" parent="297" name="UK_jreodf78a7pl5qidfh43axdfb">
-      <ColNames>username</ColNames>
-      <UnderlyingIndexName>UK_jreodf78a7pl5qidfh43axdfb</UnderlyingIndexName>
-    </key>
-    <column id="353" parent="298" name="User_id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="354" parent="298" name="accounts_id">
-      <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="355" parent="298" name="FKpq54528gxfr94qvwtgj1bfeff">
-      <ColNames>User_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="356" parent="298" name="FK3ce4f4o3ju017uogjpbkip2aq">
-      <ColNames>accounts_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <foreign-key id="357" parent="298" name="FKpq54528gxfr94qvwtgj1bfeff">
-      <ColNames>User_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="358" parent="298" name="FK3ce4f4o3ju017uogjpbkip2aq">
-      <ColNames>accounts_id</ColNames>
-      <RefSchemaName>instagram</RefSchemaName>
-      <RefTableName>account</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>

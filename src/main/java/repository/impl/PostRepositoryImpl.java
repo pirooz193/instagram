@@ -1,6 +1,6 @@
 package repository.impl;
 
-import domains.account.Post;
+import domains.account.post.Post;
 import repository.PostRrepository;
 import repository.base.BaseRepository;
 
@@ -12,6 +12,10 @@ public class PostRepositoryImpl extends BaseRepository<Post, Long> implements Po
     public static PostRepositoryImpl getInstance() {
         if (postRepository == null) return postRepository = new PostRepositoryImpl();
         return postRepository;
+    }
+
+    public Post getPost(Long id){
+        return load(id);
     }
 
     @Override

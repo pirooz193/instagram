@@ -1,6 +1,6 @@
 package repository;
 
-import domains.account.Post;
+import domains.account.post.Post;
 
 import java.util.List;
 

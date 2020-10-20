@@ -1,4 +1,4 @@
-package domains.account;
+package domains.account.post;
 
 
 import base.BaseEntity;

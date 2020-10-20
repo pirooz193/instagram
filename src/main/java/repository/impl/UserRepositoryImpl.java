@@ -1,3 +1,4 @@
+/*
 package repository.impl;
 
 import domains.user.User;
@@ -42,3 +43,4 @@ public class UserRepositoryImpl extends BaseRepository<User, Long> implements Us
                 .getSingleResult();
     }
 }
+*/
